@@ -36,4 +36,15 @@ class Controller{
     protected function hasHTTPGetParam($key) : bool{
         return isset($_GET[$key]);
     }
+
+    protected function authenticationFilter(){
+        $auth = new Auth();
+        if(! $auth->isLoggedIn()){
+            echo "<script>
+            alert('Tentativa de acesso inválida!\\nPor favor, inicie sessão primeiro!');
+            window.location.href='" . INVALID_ACCESS_ROUTE . "';
+            </script>";
+
+        }
+    }
 }

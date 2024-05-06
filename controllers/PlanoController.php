@@ -7,12 +7,7 @@ class PlanoController extends Controller
 
     public function __construct()
     {
-        $auth = new Auth();
-        if(!$auth->isLoggedIn()){
-            //header("Location: index.php?c=auth&a=index");
-            $this->redirectToRoute("auth", "index");
-
-        }
+        $this->authenticationFilter();
     }
 
     public function index()
