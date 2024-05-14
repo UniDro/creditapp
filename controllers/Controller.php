@@ -29,6 +29,10 @@ class Controller{
         return $_GET[$key] ?? '';
     }
 
+    protected function getHTTPPost(){
+        return $_POST;
+    }
+
     protected function hasHTTPPostParam($key) : bool{
         return isset($_POST[$key]);
     }
